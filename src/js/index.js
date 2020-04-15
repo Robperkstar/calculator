@@ -63,7 +63,6 @@ function addNumber(number) {
 }
 
 function doSum() {
-    calculationDisplay.innerHTML = '&nbsp'
     calculator.doSum()
     sumDisplay.innerHTML = calculator.equals
 
@@ -77,6 +76,6 @@ function saveSum() {
 
 function clearCalc() {
     calculator.clearCalc()
-    calculationDisplay.innerHTML = '&nbsp'
+    calculationDisplay.innerHTML = calculator.displayedCalculation
     sumDisplay.innerHTML = calculator.equals
 }
