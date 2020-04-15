@@ -1,13 +1,57 @@
 body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   margin: 20px 20px auto;
 }
 
 main {
-  width: 95%;
-  margin: auto;
+  width: 20%;
+  margin: auto
 }
 
-.bar {
-  color: green;
+
+.calc-body {
+  display: flex;
+  height: 50vh;
+  width: 20vw;
+  flex-direction: column;
+
+}
+
+.calc-display {
+  flex-grow: 3;
+  display: flex;
+  border: solid 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-row {
+  display: flex;
+  flex-grow: 1;
+}
+
+.calc-btn {
+
+  width: 25vw;
+
+  padding: 0;
+
+  cursor: pointer;
+
+}
+
+
+.calc-calculation {
+  flex-grow: 1;
+  padding: 0;
+  border: none;
+
+}
+
+.calc-sum {
+  padding: 0;
+  text-align: right;
+  flex-grow: 4;
+  border: none;
 }
