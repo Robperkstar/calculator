@@ -1,7 +1,7 @@
 import Calculator from './calculator.js'
 
 //call new calculator class
-let calculator = new Calculator()
+let calculator = new Calculator(null, null, null, 0)
 
 //get buttons
 const numbers = Array.from(document.querySelectorAll(".calc-btn--number"));
@@ -70,6 +70,7 @@ function doSum() {
 }
 
 function saveSum() {
+
     calculator.saveSum()
 
 }
