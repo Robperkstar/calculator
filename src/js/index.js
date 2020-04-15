@@ -37,7 +37,9 @@ window.addEventListener("keydown",
 
 //check keydown and run functions depending on what is pressed.
 function keyChecker(key) {
-
+    if (key === "Escape") {
+        return clearCalc()
+    }
     if (key == " ") {
         return
     } else if (!isNaN(key) || key === ".") {
@@ -61,8 +63,8 @@ function addNumber(number) {
 }
 
 function doSum() {
+    calculationDisplay.innerHTML = '&nbsp'
     calculator.doSum()
-    calculationDisplay.innerHTML = calculator.displayedCalculation
     sumDisplay.innerHTML = calculator.equals
 
 }

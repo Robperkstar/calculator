@@ -8,6 +8,9 @@ export default class Calculator {
 
     doSum() {
         this.result = eval(this.firstNumber + this.operator + this.secondNumber)
+        this.firstNumber = null
+        this.secondNumber = null
+        this.operator = null
     }
 
 
@@ -18,8 +21,7 @@ export default class Calculator {
     get displayedCalculation() {
         return (this.firstNumber ? this.firstNumber : "") +
             (this.operator ? this.operator : "") +
-            (this.secondNumber ? this.secondNumber : "") +
-            (this.result ? "=" : "")
+            (this.secondNumber ? this.secondNumber : "")
     }
 
     //add operator if the first number has been added already
