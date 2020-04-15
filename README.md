@@ -2,8 +2,8 @@
 
 Welcome to the Calculator app. To use it please
 
-1. clone respository
+1. Clone repository
 
-2. run npm install
+2. Run npm install
 
-3. run npm start and navigate to localhost:8080 on a web browser (if it doesn't open automatically)
+3. Run npm start and navigate to localhost:8080 on a web browser (if it doesn't open automatically)
