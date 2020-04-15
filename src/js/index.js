@@ -1,5 +1,9 @@
-/* eslint-disable no-unused-vars */
+import Calculator from './calculator.js'
 
+//call new calculator class
+let calculator = new Calculator()
+
+//get buttons
 const numbers = Array.from(document.querySelectorAll(".calc-btn--number"));
 const operationButtons = Array.from(
     document.querySelectorAll(".calc-btn--operator")
@@ -10,8 +14,10 @@ const equalsButton = document.getElementById("equals-btn");
 const allClear = document.getElementById('calc-ac')
 const save = document.getElementById('calc-save')
 
-save.addEventListener('click', e => saveSum())
-allClear.addEventListener('click', e => clearCalc())
+
+//add event listeners to buttons and call functions
+save.addEventListener('click', () => saveSum())
+allClear.addEventListener('click', () => clearCalc())
 
 numbers.forEach((number) =>
     number.addEventListener("click", e => addNumber(e.target.value))
@@ -21,47 +27,53 @@ operationButtons.forEach((operator) =>
 );
 equalsButton.addEventListener("click", () => doSum());
 
-
+//add event listener for keydown and stop default behaviour
 window.addEventListener("keydown",
     e => {
         e.preventDefault()
         keyChecker(e.key)
     })
 
+
+//check keydown and run functions depending on what is pressed.
 function keyChecker(key) {
-    if (key === "Enter") {
-        return doSum()
-    } else if (key == " ") {
-        console.log("hi")
+
+    if (key == " ") {
         return
     } else if (!isNaN(key) || key === ".") {
         return addNumber(key);
     } else if (key === "+" || key === "-" || key === "*" || key === "/") {
         return addOperation(key)
-
+    } else if (key === "Enter") {
+        return doSum()
     } else return;
 }
 
-
+//functions that call the calculator class and change the innerHTML of the display
 function addOperation(operator) {
-    if (operator === "=") {
-        return;
-    }
-    console.log("operator", operator)
+    calculator.addOperation(operator)
+    calculationDisplay.innerHTML = calculator.displayedCalculation
 }
 
 function addNumber(number) {
-    console.log("number", number);
+    calculator.addNumber(number)
+    calculationDisplay.innerHTML = calculator.displayedCalculation
 }
 
 function doSum() {
-    console.log("Im a sum")
+    calculator.doSum()
+    calculationDisplay.innerHTML = calculator.displayedCalculation
+    sumDisplay.innerHTML = calculator.equals
+
 }
 
 function saveSum() {
-    console.log("save")
+    calculator.saveSum()
+
 }
 
 function clearCalc() {
-    console.log('clear calc')
+    calculator.clearCalc()
+    calculationDisplay.innerHTML = '&nbsp'
+    sumDisplay.innerHTML = calculator.equals
 }
